@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiCollectionView"
+             x:Class="MauiCollectionView.NewPage2"
+             x:Name="this"
+             Title="NewPage2">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="fontSize1">20</x:Double>
+
+            <DataTemplate x:Key="itemTemplateListView" x:DataType="{x:Type local:SampleItem}">
+                <ViewCell>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.35*" />
+                            <ColumnDefinition Width="0.25*" />
+                            <ColumnDefinition Width="0.7*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="{Binding FirstProperty}"
+                           FontAttributes="Bold"
+                           TextColor="Blue"
+                           VerticalOptions="Center"
+                           FontSize="{StaticResource fontSize1}" />
+                        <Label Text="{Binding SecondProperty}"
+                           Grid.Column="1"
+                           VerticalOptions="Center"
+                           FontSize="{StaticResource fontSize1}" />
+                        <Label Text="{Binding ThirdProperty}"
+                           Grid.Column="2"
+                           VerticalOptions="Center"
+                           FontSize="{StaticResource fontSize1}" />
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <Label Text="This is a ListView test!"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+
+        <ListView
+            ItemsSource="{Binding Items, Source={x:Reference this}}"
+            ItemTemplate="{StaticResource itemTemplateListView}"
+            Margin="10, 0, 5, 0"
+            SelectionMode = "None"
+            HasUnevenRows = "False" />
+
+        <Label Text="Welcome to .NET MAUI!"
+               TextColor="Red"
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" />
+
+    </StackLayout>
+</ContentPage>

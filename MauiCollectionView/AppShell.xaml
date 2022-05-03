@@ -4,11 +4,20 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MauiCollectionView"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Flyout">
 
-    <ShellContent
-        Title="Hello, World!"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <FlyoutItem Title="CollectionView">
+        <ShellContent
+            Title="CollectionView"
+            ContentTemplate="{DataTemplate local:NewPage1}"
+            Route="CollectionView" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="ListView">
+        <ShellContent
+            Title="ListView"
+            ContentTemplate="{DataTemplate local:NewPage2}"
+            Route="ListView" />
+    </FlyoutItem>
 
 </Shell>
